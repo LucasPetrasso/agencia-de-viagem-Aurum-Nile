@@ -4,7 +4,7 @@ body {
     font-family: "Ubuntu", sans-serif;
     margin: 0;
     min-height: 100vh;
-    background-color: #0B0B0B;
+    background-color: #0b0b0be5;
     color: #F5F5F5;
     letter-spacing: 1px;
 }
@@ -131,12 +131,13 @@ nav a:hover {
 
 #description_container {
     display: flex;
+    flex-direction: row;
     flex-wrap :nowrap; 
 }
 
 .egypt_description {
+    display: flex;
     justify-content: center;
-    text-align: justify;
     padding: 24px;
     margin-top: 30px;
     margin-bottom: 40px;
@@ -152,18 +153,13 @@ nav a:hover {
     line-height: 2.3rem;
 }
 
-#description_1 {
-    margin: 5px
-}
-
-#description_2 {
-    margin: 5px
-}
-
 
 .description_img {
-    width: 220px;
-    padding: 10px;
+    width: 140%;
+    height: 400px;
+    margin-top: 60px;
+    padding: 0;
+    overflow: hidden;
 }
 
 .carrossel h3 {
@@ -492,126 +488,84 @@ textarea {
     width: 100%;
 }
 
-/* ========================= */
-/* FOOTER */
-/* ========================= */
 
 .footer {
-
     background: linear-gradient(
         180deg,
         #06171D,
         #071E26,
         #020607
     );
-
     color: #F5F5F5;
-
     padding-top: 60px;
-
     border-top: 1px solid rgba(212,175,55,0.2);
 }
 
 .footer-container {
-
     display: flex;
-
     justify-content: space-between;
-
     gap: 60px;
-
     padding: 0 80px 50px;
-
     flex-wrap: wrap;
 }
 
 .footer-brand {
-
     max-width: 380px;
 }
 
 .footer-brand h2 {
-
     font-family: "Cormorant Garamond";
-
     font-size: 42px;
-
     color: #D4AF37;
-
     margin-bottom: 20px;
-
     font-style: italic;
 }
 
 .footer-brand p {
-
     line-height: 1.8;
-
     color: #D8C3A5;
 }
 
 .footer-links {
-
     display: flex;
-
     gap: 70px;
-
     flex-wrap: wrap;
 }
 
 .footer-column {
-
     display: flex;
-
     flex-direction: column;
-
     gap: 12px;
 }
 
 .footer-column h3 {
-
     color: #D4AF37;
-
     margin-bottom: 10px;
-
     font-size: 22px;
 }
 
 .footer-column a {
-
     text-decoration: none;
-
     color: #F5F5F5;
-
     transition: 0.3s ease;
 }
 
 .footer-column a:hover {
-
     color: #D4AF37;
-
     transform: translateX(5px);
 }
 
 .footer-column p {
-
     margin: 0;
-
     color: #D8C3A5;
-
     line-height: 1.6;
 }
 
 .footer-bottom {
-
     border-top: 1px solid rgba(255,255,255,0.08);
-
     text-align: center;
-
     padding: 25px 20px;
-
     color: #999;
-
     font-size: 14px;
 }
 
@@ -625,10 +579,6 @@ textarea {
         transform: translateX(calc(-420px * 6));
     }
 }
-
-/* ========================= */
-/* RESPONSIVIDADE TABLET */
-/* ========================= */
 
 @media (max-width: 1024px) {
 
@@ -673,11 +623,6 @@ textarea {
         padding-left: 80px;
     }
 }
-
-
-/* ========================= */
-/* RESPONSIVIDADE CELULAR */
-/* ========================= */
 
 @media (max-width: 768px) {
 
