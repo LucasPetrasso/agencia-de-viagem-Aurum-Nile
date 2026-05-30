@@ -7,6 +7,7 @@ body {
     background-color: #0b0b0be5;
     color: #F5F5F5;
     letter-spacing: 1px;
+    overflow-x: hidden;
 }
 
 .body_container {
@@ -20,8 +21,11 @@ body {
 .header {
     display: flex;
     flex-direction: column;
-    padding: 10px 40px;
+    padding: 0px 40px;
     margin-bottom: 24px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
     font-family: "Cormorant Garamond";
     background: linear-gradient(
     135deg,
@@ -102,13 +106,8 @@ nav a:hover {
     width: 350px;
     margin-top: 100px;
     padding: 0px 8px;
-    border-radius: 15px;
-    background: linear-gradient(
-    135deg,
-    #06171D 0%,
-    #0E3B43 50%,
-    #1A4D57 100%
-    );
+    border-radius: 25px;
+    background-color: rgba(0, 0, 0, 0.2);
     color:#F5F5F5;
     font-size: 1.5rem;
     cursor: pointer;
@@ -117,10 +116,11 @@ nav a:hover {
 #hero button:hover {
     background: linear-gradient(
     135deg,
-    #1A4D57 0%,
-    #0E3B43 50%,
-    #06171D 100%
+    #d8b26e,
+    #c67a3d
     );
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
 }
 
 #horus_eye {
@@ -144,7 +144,7 @@ nav a:hover {
     background-size: cover;
 }
 
-.egypt_description {
+.egypt_description_left {
     display: flex;
     justify-content: center;
     padding: 24px;
@@ -152,7 +152,32 @@ nav a:hover {
     color:#F5F5F5;
     font-size: 1.8rem;
     line-height: 2.3rem;
+
+    opacity: 0;
+    transform: translateX(-100px);
+
+    animation: slideLeft linear forwards;
+    animation-timeline: view();
+    animation-range: entry 20% cover 40%;
 }
+
+.egypt_description_right {
+    display: flex;
+    justify-content: center;
+    padding: 24px;
+    margin: 40px;
+    color:#F5F5F5;
+    font-size: 1.8rem;
+    line-height: 2.3rem;
+
+    opacity: 0;
+    transform: translateX(100px);
+
+    animation: slideRight linear forwards;
+    animation-timeline: view();
+    animation-range: entry 20% cover 40%;
+}
+
 
 .carrossel h3 {
     text-align: center;
@@ -339,20 +364,15 @@ nav a:hover {
     width: 320px;
     padding: 35px;
     border-radius: 22px;
-
     background: linear-gradient(
         145deg,
         rgba(255,255,255,0.05),
         rgba(255,255,255,0.02)
     );
-
     backdrop-filter: blur(14px);
-
     border: 1px solid rgba(212,175,55,0.18);
-
     box-shadow:
         0 12px 35px rgba(0,0,0,0.35);
-
     transition: .35s ease;
 }
 
@@ -393,21 +413,18 @@ nav a:hover {
 .card button {
     width: 100%;
     padding: 14px;
-
     border: none;
     border-radius: 30px;
-
     background: linear-gradient(
         135deg,
         #b8860b,
         #f0c550,
         #fff2b0
     );
-
     color: #071E26;
+    font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
-
     transition: .3s ease;
 }
 
@@ -417,7 +434,6 @@ nav a:hover {
 
 .destaque {
     border: 1px solid rgba(240,197,80,0.45);
-
     box-shadow:
         0 0 25px rgba(240,197,80,0.15);
 }
@@ -455,6 +471,7 @@ nav a:hover {
 
 form {
     display: flex;
+    justify-content: center;
     padding: 30px 300px;
     margin-bottom: 24px;
     flex-wrap: wrap;
@@ -464,7 +481,8 @@ input {
     padding: 10px;
     margin: 10px;
     border-radius: 10px;
-    background-color: #ffffffe5;;
+    background-color: #ffffffe5;
+    font-size: 1rem;
     flex: 1;
 }
 
@@ -479,8 +497,27 @@ textarea {
     background-color: #ffffffe5;
     height: 200px;
     width: 100%;
+    font-size: 1rem;
 }
 
+form button {
+    width: 15%;
+    margin-top: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: none;
+    border-radius: 30px;
+    background-color: rgb(212, 175, 55);;
+    color: #071E26;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+form button:hover {
+    transform: scale(1.05);
+}
 
 .footer {
     background: linear-gradient(
@@ -573,201 +610,16 @@ textarea {
     }
 }
 
-@media (max-width: 1000px) {
-
-    .header {
-        padding: 30px 40px;
-    }
-
-    .nav_menu {
-        flex-wrap: wrap;
-        justify-content: center;
-        font-size: 20px;
-    }
-
-    #hero p {
-        font-size: 2.2rem;
-        text-align: center;
-        padding: 0 20px;
-    }
-
-    #hero button {
-        width: 280px;
-        font-size: 1.2rem;
-    }
-
-    .carrossel {
-        padding: 20px;
-    }
-
-    .slide {
-        width: 300px;
-    }
-
-    .lista-pacotes {
-        flex-wrap: wrap;
-    }
-
-    form {
-        padding: 30px 80px;
-    }
-
-    .form h3 {
-        padding-left: 80px;
+@keyframes slideLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
     }
 }
 
-@media (max-width: 767px) {
-
-    .header {
-        padding: 20px;
-        text-align: center;
+@keyframes slideRight {
+    to {
+        opacity: 1;
+        transform: translateX(0);
     }
-
-    .header h1 {
-        font-size: 40px;
-    }
-
-    .header h2 {
-        font-size: 18px;
-    }
-
-    .nav_menu {
-        flex-direction: column;
-        align-items: center;
-        font-size: 18px;
-        gap: 10px;
-        margin-top: 20px;
-    }
-
-    #hero {
-        height: auto;
-        padding: 80px 20px;
-    }
-
-    #hero p {
-        font-size: 1.8rem;
-        text-align: center;
-        margin-bottom: 40px;
-    }
-
-    #hero button {
-        width: 100%;
-        max-width: 300px;
-        font-size: 1rem;
-    }
-
-    #horus_eye {
-        width: 70px;
-        height: 70px;
-    }
-
-    #description_container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .egypt_description {
-        font-size: 1.1rem;
-        line-height: 1.8rem;
-    }
-
-    .description_img {
-        width: 140px;
-        display: block;
-        margin: 0 auto;
-    }
-
-    .carrossel {
-        padding: 20px 10px;
-    }
-
-    .carrossel h3 {
-        font-size: 1.5rem;
-    }
-
-    .slide {
-        width: 260px;
-    }
-
-    #pontos-turisticos {
-        padding: 30px 20px;
-    }
-
-    #pontos-turisticos h2 {
-        font-size: 30px;
-    }
-
-    .destino-card {
-        width: 100%;
-    }
-
-    #pacotes {
-        padding: 30px 20px;
-    }
-
-    #pacotes h2 {
-        font-size: 30px;
-    }
-
-    .lista-pacotes {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .card {
-        width: 100%;
-        max-width: 320px;
-    }
-
-    .form {
-        width: 100%;
-    }
-
-    .form h3 {
-        padding-left: 20px;
-        font-size: 30px;
-    }
-
-    form {
-        padding: 20px;
-        flex-direction: column;
-    }
-
-    input {
-        width: 100%;
-        margin: 10px 0;
-    }
-
-    textarea {
-        width: 100%;
-        margin: 10px 0;
-    }
-
-    .footer-container {
-
-    flex-direction: column;
-
-    padding: 0 20px 40px;
-
-    gap: 40px;
 }
-
-    .footer-links {
-
-    flex-direction: column;
-
-    gap: 40px;
-}
-
-    .footer-brand h2 {
-
-    font-size: 36px;
-}
-
-    .footer-column h3 {
-
-    font-size: 20px;
-}
-}
-
