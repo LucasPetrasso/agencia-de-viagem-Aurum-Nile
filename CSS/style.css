@@ -20,7 +20,7 @@ body {
 .header {
     display: flex;
     flex-direction: column;
-    padding: 30px 80px;
+    padding: 10px 40px;
     margin-bottom: 24px;
     font-family: "Cormorant Garamond";
     background: linear-gradient(
@@ -39,15 +39,13 @@ body {
     letter-spacing: 4px;
 }
 
-.header h2 {
-    font-size: 24px;
-}
-
 .nav_menu {
     display: flex;
-    justify-content: flex-end;
-    font-size: 24px;
+    justify-content:flex-end;
+    font-size: 28px;
     gap: 15px;
+    position: relative;
+    bottom: 90px;
 }
 
 nav a {
@@ -81,6 +79,7 @@ nav a:hover {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    margin-bottom: 24px;
     background: linear-gradient(
     rgba(0,0,0,0.72),
     rgba(0,0,0,0.72)
@@ -101,8 +100,9 @@ nav a:hover {
     justify-content: center;
     align-items: center;
     width: 350px;
-    padding: 0px 15px;
-    border-radius: 8px;
+    margin-top: 100px;
+    padding: 0px 8px;
+    border-radius: 15px;
     background: linear-gradient(
     135deg,
     #06171D 0%,
@@ -125,41 +125,33 @@ nav a:hover {
 
 #horus_eye {
     display: flex;
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
 }
 
 #description_container {
     display: flex;
-    flex-direction: row;
-    flex-wrap :nowrap; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    margin-bottom: 24px; 
+    background: linear-gradient(
+    rgba(0,0,0,0.72),
+    rgba(0,0,0,0.72)
+    ), url(/CSS/Imagens/esfinge.png);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .egypt_description {
     display: flex;
     justify-content: center;
     padding: 24px;
-    margin-top: 30px;
-    margin-bottom: 40px;
-    background: linear-gradient(
-    135deg,
-    #06171D 0%,
-    #0E3B43 50%,
-    #1A4D57 100%
-    );
+    margin: 40px;
     color:#F5F5F5;
-    border-radius: 10px;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     line-height: 2.3rem;
-}
-
-
-.description_img {
-    width: 140%;
-    height: 400px;
-    margin-top: 60px;
-    padding: 0;
-    overflow: hidden;
 }
 
 .carrossel h3 {
@@ -337,6 +329,7 @@ nav a:hover {
 .lista-pacotes {
     list-style: none;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 35px;
     padding: 0;
@@ -580,7 +573,7 @@ textarea {
     }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1000px) {
 
     .header {
         padding: 30px 40px;
@@ -624,7 +617,7 @@ textarea {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
 
     .header {
         padding: 20px;
