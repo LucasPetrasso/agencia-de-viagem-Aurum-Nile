@@ -20,7 +20,11 @@ body {
 
 .header {
     display: flex;
+    justify-content: space-between;
     flex-direction: column;
+    width: 100%;
+    min-height: 80px;
+    height: auto;
     padding: 0px 40px;
     margin-bottom: 24px;
     position: sticky;
@@ -44,12 +48,12 @@ body {
 }
 
 .nav_menu {
-    display: flex;
-    justify-content:flex-end;
     font-size: 28px;
-    gap: 15px;
-    position: relative;
-    bottom: 90px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    position: static;
+    margin-top: 10px;
 }
 
 nav a {
@@ -82,7 +86,7 @@ nav a:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin-bottom: 24px;
     background: linear-gradient(
     rgba(0,0,0,0.72),
@@ -103,7 +107,7 @@ nav a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 350px;
+    width: clamp(220px, 40vw, 350px);
     margin-top: 100px;
     padding: 0px 8px;
     border-radius: 25px;
@@ -129,12 +133,18 @@ nav a:hover {
     height: 80px;
 }
 
+.main_content,
+.about_egypt,
+.about_egypt_content {
+    width: 100%;
+}
+
 #description_container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 80vh;
+    min-height: 80vh;
     margin-bottom: 24px; 
     background: linear-gradient(
     rgba(0,0,0,0.72),
@@ -371,14 +381,12 @@ nav a:hover {
     );
     backdrop-filter: blur(14px);
     border: 1px solid rgba(212,175,55,0.18);
-    box-shadow:
-        0 12px 35px rgba(0,0,0,0.35);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.35);
     transition: .35s ease;
 }
 
 .card:hover {
     transform: translateY(-12px);
-
     box-shadow:
         0 18px 40px rgba(212,175,55,0.18);
 }
@@ -465,15 +473,16 @@ nav a:hover {
     color: white;
     font-size: 42px;
     padding-top: 50px;
-    padding-left: 310px;
+    padding-left: 462px;
     margin-bottom: 15px;
 }
 
 form {
     display: flex;
     justify-content: center;
-    padding: 30px 300px;
-    margin-bottom: 24px;
+    padding: 30px;
+    max-width: 900px;
+    margin: 0 auto;
     flex-wrap: wrap;
 }
 
@@ -599,6 +608,11 @@ form button:hover {
     font-size: 14px;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 /* animação */
 
 @keyframes slide {
@@ -621,5 +635,208 @@ form button:hover {
     to {
         opacity: 1;
         transform: translateX(0);
+    }
+}
+
+@media (max-width: 1024px) {
+
+    .header {
+        height: auto;
+        padding: 20px;
+    }
+
+    
+
+    .nav_menu {
+        position: static;
+        justify-content: center;
+        flex-wrap: wrap;
+        font-size: 1.3rem;
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    #hero p {
+        font-size: 2.3rem;
+        text-align: center;
+        padding: 0 20px;
+    }
+
+    #description_container {
+        height: auto;
+        padding: 60px 20px;
+    }
+
+    .egypt_description_left,
+    .egypt_description_right {
+        font-size: 1.4rem;
+        line-height: 2rem;
+        margin: 20px;
+    }
+
+    .form h3 {
+        padding-left: 0;
+        align-self: center;
+    }
+
+    form {
+        padding: 30px;
+    }
+
+    form button {
+        width: 200px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-links {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .header header {
+        flex-direction: column;
+        gap: 15px;
+    }    
+    .header h1 {
+        font-size: 2.5rem;
+        text-align: center;
+    }
+
+    .nav_menu {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        font-size: 1.1rem;
+    }
+
+    #hero {
+        height: 80vh;
+    }
+
+    #hero p {
+        font-size: 1.8rem;
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    #hero button {
+        width: 250px;
+        font-size: 1.1rem;
+    }
+
+    #horus_eye {
+        width: 60px;
+        height: 60px;
+    }
+
+    .carrossel {
+        padding: 20px;
+    }
+
+    .slide {
+        width: 280px;
+    }
+
+    .slide img {
+        height: 180px;
+    }
+
+    #pontos-turisticos,
+    #pacotes {
+        padding: 40px 20px;
+    }
+
+    #pontos-turisticos h2,
+    #pacotes h2 {
+        font-size: 2rem;
+    }
+
+    .destino-card,
+    .card {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .egypt_description_left,
+    .egypt_description_right {
+        font-size: 1.1rem;
+        line-height: 1.8rem;
+        margin: 10px;
+        padding: 10px;
+    }
+
+    form {
+        padding: 20px;
+        flex-direction: column;
+    }
+
+    input,
+    textarea {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    form button {
+        width: 100%;
+    }
+
+    .footer-container {
+        padding: 20px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .footer-column {
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .header {
+        padding: 15px;
+    }
+
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    #hero p {
+        font-size: 1.4rem;
+    }
+
+    #hero button {
+        width: 220px;
+        font-size: 1rem;
+    }
+
+    .carrossel h3 {
+        font-size: 1.5rem;
+    }
+
+    #pontos-turisticos h2,
+    #pacotes h2,
+    .form h3 {
+        font-size: 1.7rem;
+    }
+
+    .footer-brand h2 {
+        font-size: 2rem;
+    }
+
+    .footer-brand,
+    .footer-column {
+        text-align: center;
     }
 }
