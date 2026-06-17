@@ -414,6 +414,11 @@ nav a:hover {
     margin-bottom: 25px;
 }
 
+.descricao li {
+    text-align: left;
+    margin-top: 8px;;
+}
+
 .preco {
     display: block;
     font-size: 34px;
